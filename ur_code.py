@@ -5,7 +5,7 @@ import io
 def main():
     st.title("UR-Code: QR Code Generator")
     with st.form("QR Codes Form"):
-        data = st.text_input("Enter the data for the QR code")
+        data = st.text_input("Enter the link to be QR-ified!")
         qr_color = st.color_picker("Select QR Code Color", "#000000")
         bg_color = st.color_picker("Select Background Color", "#FFFFFF")
         submit_button = st.form_submit_button("Generate QR Code")
