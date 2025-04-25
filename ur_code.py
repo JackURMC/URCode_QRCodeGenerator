@@ -38,10 +38,17 @@ def main():
 
     with st.form("QR Codes Form"):
         data = st.text_input("Enter the link to be QR-ified!")
-        qr_color = st.color_picker("Select QR Code Color", "#000000")
-        bg_color = st.color_picker("Select Background Color", "#FFFFFF")
+        #qr_color = st.color_picker("Select QR Code Color", "#000000")
+        #bg_color = st.color_picker("Select Background Color", "#FFFFFF")
         icon__select = st.selectbox("Select Icon", ["Medicine Logo", "Yellow Jacket"])
-        icon_color = st.color_picker("Select Icon Color", "#FFD700") 
+        #icon_color = st.color_picker("Select Icon Color", "#FFD700")
+        col1, col2, col3 = st.columns(3)
+        with col2:
+            qr_color = st.color_picker("Select QR Code Color", "#000000")
+        with col3:
+            bg_color = st.color_picker("Select Background Color", "#FFFFFF")
+        with col1:
+            icon_color = st.color_picker("Select Icon Color", "#FFD700") 
         submit_button = st.form_submit_button("Generate QR Code")
 
     if submit_button:
