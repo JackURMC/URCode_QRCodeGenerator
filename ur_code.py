@@ -34,18 +34,22 @@ def generate_qr_with_icon(data, qr_color, bg_color, icon_img):
     return img
 
 def main():
-    st.title("UR-Code: QR Code Generator 🐝")
+    st.title("UR-Code: QR Code Generator")
 
     with st.form("QR Codes Form"):
         data = st.text_input("Enter the link to be QR-ified!")
         qr_color = st.color_picker("Select QR Code Color", "#000000")
         bg_color = st.color_picker("Select Background Color", "#FFFFFF")
-        icon_color = st.color_picker("Select Yellow Jacket Icon Color", "#FFD700") 
+        icon__select = st.selectbox("Select Icon", ["Medicine Logo", "Yellow Jacket"])
+        icon_color = st.color_picker("Select Icon Color", "#FFD700") 
         submit_button = st.form_submit_button("Generate QR Code")
 
     if submit_button:
         if data:
-            icon_path = "yellow_jacket_icon.png" 
+            if icon__select == "Medicine Logo":
+                icon_path = "ur_crest.png" 
+            elif icon__select == "Yellow Jacket":
+                icon_path = "yellow_jacket_icon.png" 
             colored_icon = recolor_icon(icon_path, icon_color)
             final_img = generate_qr_with_icon(data, qr_color, bg_color, colored_icon)
 
